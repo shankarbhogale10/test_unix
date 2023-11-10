@@ -1,0 +1,10 @@
+---
+- name: Get server uptime
+  hosts: all
+  user: sysadm
+
+  tasks:
+    - name: Get uptime first
+      shell: sudo hostname;sudo uptime
+      register: hello
+    - debug: msg="{{ hello.stdout }}"
